@@ -5,10 +5,10 @@
     <AboutArea />
     <ResumeArea />
     <WorksArea />
-<!--    <PriceArea />-->
-<!--    <HireArea />-->
-<!--    <TestimonialArea />-->
-<!--    <BlogArea />-->
+    <!--    <PriceArea />-->
+    <!--    <HireArea />-->
+    <!--    <TestimonialArea />-->
+    <BlogArea />
     <ContactArea />
   </div>
 </template>
@@ -35,8 +35,8 @@ export default {
     // PriceArea,
     // HireArea,
     // TestimonialArea,
-    // BlogArea,
-    ContactArea
-  }
+    BlogArea,
+    ContactArea,
+  },
 };
 </script>

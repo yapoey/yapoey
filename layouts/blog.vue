@@ -1,37 +1,70 @@
 <template>
   <div>
-    <!-- Start Preloader Area -->
-    <div class="preloader-area">
-      <div class="loader">
-        <div class="loader-inner"></div>
-        <div class="loader-inner"></div>
-        <div class="loader-inner"></div>
-        <div class="loader-inner"></div>
-        <div class="loader-inner"></div>
-        <div class="loader-inner"></div>
-        <div class="loader-inner"></div>
-        <div class="loader-inner"></div>
+    <header>
+      <div class="header-area header-transparrent">
+        <div class="main-header header-sticky">
+          <div class="container">
+            <div class="row align-items-center">
+              <!-- Logo -->
+              <div class="col-xl-2 col-lg-2 col-md-2">
+                <div class="logo">
+                  <a href="/" @click="$ga.event('Header', 'logo')"
+                    ><div class="logo" style="height: 55px; width: 170px"></div
+                  ></a>
+                </div>
+              </div>
+              <div class="col-xl-10 col-lg-10 col-md-10">
+                <!-- Main-menu -->
+                <div class="main-menu float-right d-none d-lg-block">
+                  <nav>
+                    <ul id="navigation">
+                      <li class="nav-item">
+                        <nuxt-link
+                          to="/blog"
+                          class="nav-link transition"
+                          :class="{
+                            active: $route.path.includes('courses'),
+                          }"
+                          @click="$ga.event('Header', 'Courses')"
+                        >
+                          Courses</nuxt-link
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <nuxt-link
+                          to="/blog/coding-test"
+                          class="nav-link transition"
+                          :class="{
+                            active: $route.path.includes('coding-test'),
+                          }"
+                          @click="$ga.event('Header', 'Coding-test')"
+                          >Coding-test</nuxt-link
+                        >
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              <!-- Mobile Menu -->
+              <div class="col-12">
+                <div class="mobile_menu d-block d-lg-none"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <!-- End Preloader Area -->
-    <Header />
-    <nuxt />
+    </header>
+    <main>
+      <nuxt />
+    </main>
     <Footer />
   </div>
 </template>
-
 <script>
-import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 export default {
   components: {
-    Header,
     Footer,
-  },
-  head() {
-    return {
-      title: "yapoey",
-    };
   },
   mounted() {
     /** ------- Pre Loader **/
@@ -81,68 +114,6 @@ export default {
         $(".header-sticky").addClass("sticky-bar");
       }
     });
-
-    /* ================================================= */
-    /*	Works Area Filter js
-     /* ================================================= */
-
-    $(window).on("load", function() {
-      $(".filters ul li").on("click", function() {
-        $(".filters ul li").removeClass("active");
-        $(this).addClass("active");
-
-        var data = $(this).attr("data-filter");
-        $grid.isotope({
-          filter: data,
-        });
-      });
-
-      if (document.getElementById("works")) {
-        var $grid = $(".grid").isotope({
-          itemSelector: ".all",
-          percentPosition: true,
-          masonry: {
-            columnWidth: ".all",
-          },
-        });
-      }
-
-      /* ================================================= */
-      /*	Testimonial Slider
-         /* ================================================= */
-
-      $(".test-slider").slick({
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        arrows: false,
-      });
-    });
-
-    /* ================================================= */
-    /*	Blog Slider
-     /* ================================================= */
-
-    function blog_slider() {
-      if ($(".blog-slider").length) {
-        $(".blog-slider").owlCarousel({
-          loop: true,
-          margin: 0,
-          items: 1,
-          nav: true,
-          autoplay: true,
-          smartSpeed: 1500,
-          dots: true,
-          navContainer: ".blog-text-inner",
-          navText: [
-            '<i class="icon-arrow-left"></i>',
-            '<i class="icon-arrow-right"></i>',
-          ],
-          responsiveClass: true,
-        });
-      }
-    }
-    blog_slider();
 
     /* ================================================= */
     /*    sildeBar scroll
@@ -243,3 +214,8 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+main {
+  padding-top: 75px;
+}
+</style>

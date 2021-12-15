@@ -1,12 +1,4 @@
 /*
-Template Name: Cobra - Vue Personal Portfolio Template
-Version: 1.0
-Author: Karim Ezzat
-Author URI: http://themeforest.net/user/karimezzat
-Description: Cobra on-page Website Responsive Vue Template
-Tags: One-Page, Nuxt, Vue, Website, Business, Portfolio, Responsive, Vue, Css3, jQuery, Bootstrap
-*/
-/*
 Style Index
 ==================================================
     1. Basic Style & Reset
@@ -33,10 +25,64 @@ Style Index
 /*    Basic Style & Reset
 /* =================================== */
 /* reset elements */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
-pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
-s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
-figure, header, nav, section, article, aside, footer, figcaption {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+div pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+figure,
+header,
+nav,
+section,
+article,
+aside,
+footer,
+figcaption {
   margin: 0;
   padding: 0;
   border: 0;
@@ -89,35 +135,45 @@ body {
   position: relative;
 }
 
-h1, h2, h3,
-h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Poppins", sans-serif;
   color: #222222;
   font-weight: 400;
   line-height: 1.5;
 }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: 36px;
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: 30px;
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: 24px;
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-size: 18px;
 }
 
-h5, .h5 {
+h5,
+.h5 {
   font-size: 16px;
 }
 
-h6, .h6 {
+h6,
+.h6 {
   font-size: 14px;
 }
 
@@ -140,11 +196,13 @@ a,
   transition: all 0.3s ease 0s;
 }
 
-a:focus, a:hover {
+a:focus,
+a:hover {
   text-decoration: none;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -244,7 +302,8 @@ ul, ol {
   height: 1px;
   width: 0;
 }
-.main-header .main-menu ul li > .nav-link:hover::before, .main-header .main-menu ul li > .nav-link.active::before {
+.main-header .main-menu ul li > .nav-link:hover::before,
+.main-header .main-menu ul li > .nav-link.active::before {
   width: 100%;
 }
 .main-header .main-menu ul ul.submenu {
@@ -290,12 +349,12 @@ ul, ol {
   top: 100%;
 }
 @media (prefers-color-scheme: dark) {
-  .logo.dark{
+  .logo.dark {
     background-image: url(../img/logo.white.png);
     width: 170px;
   }
 }
-.logo{
+.logo {
   background-image: url(../img/logo.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -432,7 +491,8 @@ h2.service-title {
 .about-area .section-title {
   text-align: left;
 }
-.about-area .section-title h2::after, .about-area .section-title h2::before {
+.about-area .section-title h2::after,
+.about-area .section-title h2::before {
   left: 0;
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -630,13 +690,16 @@ h2.service-title {
   left: 11px;
   z-index: 1;
 }
-.filters li.active::before, .filters li:hover::before {
+.filters li.active::before,
+.filters li:hover::before {
   -webkit-transform: translate3d(-30%, -70%, 0) scale(1);
   -ms-transform: translate3d(-30%, -70%, 0) scale(1);
   transform: translate3d(-30%, -70%, 0) scale(1);
 }
 
-.filters-content .grid .single-work:first-of-type, .filters-content .grid .single-work:nth-of-type(2), .filters-content .grid .single-work:nth-of-type(3) {
+.filters-content .grid .single-work:first-of-type,
+.filters-content .grid .single-work:nth-of-type(2),
+.filters-content .grid .single-work:nth-of-type(3) {
   margin-bottom: 30px;
 }
 .filters-content .grid .single-work img {
@@ -706,7 +769,8 @@ h2.service-title {
   margin-bottom: 30px;
   position: relative;
 }
-.pricing-item .icon::before, .pricing-item .icon::after {
+.pricing-item .icon::before,
+.pricing-item .icon::after {
   content: "";
   width: 30px;
   height: 1px;
@@ -786,7 +850,8 @@ h2.service-title {
 .hire-me-area .section-title h2 {
   color: #fff;
 }
-.hire-me-area .section-title h2::before, .hire-me-area .section-title h2::after {
+.hire-me-area .section-title h2::before,
+.hire-me-area .section-title h2::after {
   background: #fff;
 }
 .hire-me-area .section-title p {
