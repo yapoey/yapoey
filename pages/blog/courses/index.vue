@@ -37,7 +37,6 @@ export default {
           "https://yapoey-blog-default-rtdb.firebaseio.com/courses/-MqtHi-8-KDwCZbKzxpj.json"
         )
         .then((res) => {
-          console.log(res);
           this.courses = res;
         });
     },

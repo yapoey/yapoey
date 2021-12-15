@@ -54,7 +54,6 @@ export default {
         )
         .then((res) => {
           this.item = res;
-          console.log(res);
         });
     },
   },

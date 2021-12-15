@@ -38,7 +38,9 @@
           <div v-for="(l, key, index) in item.links" :key="index">
             <h4>{{ key }}</h4>
             <p>
-              <a :href="l" target="_blank">{{ l }}</a>
+              <a style="word-break: break-all;" :href="l" target="_blank">{{
+                l
+              }}</a>
             </p>
           </div>
         </article>
@@ -58,12 +60,13 @@ export default {
     getCourse() {
       this.$axios
         .$get(
-          "https://yapoey-blog-default-rtdb.firebaseio.com/courses/-MqtHi-8-KDwCZbKzxpj/items/-MqtQYBQhX5bliEsEiau/list/" +
+          "https://yapoey-blog-default-rtdb.firebaseio.com/courses/-MqtHi-8-KDwCZbKzxpj/items/" +
+            this.$route.params.courseId +
+            "/list/" +
             this.$route.params.lecture +
             ".json"
         )
         .then((res) => {
-          console.log(res);
           this.item = res;
         });
     },

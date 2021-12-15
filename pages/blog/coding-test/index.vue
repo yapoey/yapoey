@@ -39,7 +39,6 @@ export default {
           "https://yapoey-blog-default-rtdb.firebaseio.com/problems/-Mqsut49ddDUsM6MZCtk.json"
         )
         .then((res) => {
-          console.log(res);
           this.problems = res;
         });
     },
@@ -59,9 +58,9 @@ export default {
 @import "~assets/CSS/list";
 
 .problem-card {
-  background-color: #8bc6ec;
-  background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
-
+  background-color: #21d4fd;
+  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+  color: #fff;
   height: 250px;
   display: flex;
   justify-content: center;

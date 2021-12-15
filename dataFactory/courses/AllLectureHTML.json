@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Setting Up the Course Environment",
+    "des": "In this video, we will be able to configure the environment that we will use in order to program HTML & CSS.\n        We will learn how to install vscode and get to know it.\n        Also, how can we use plugins to help us during programming.",
+    "youtube": "https://youtu.be/peuK9osnMOo",
+    "lang": "Arabic",
+    "created_at": "Jul 28, 2021",
+    "time": "10:22",
+    "contents": {
+      "p1": "What is IDE?",
+      "p2": "How to install vscode?",
+      "p3": "What to install plugins?",
+      "p4": "What to install Prettier?",
+      "p5": "What to install Live-server?",
+      "p6": "What to install Material Theme?"
+    },
+    "links": {
+      "VS-code": "https://code.visualstudio.com"
+    }
+  },
+  {
+    "title": "What is HTML? ",
+    "des": "In this lecture we will get to know what is exactly is HTML and what is the differences between HTML & CSS & Javascript",
+    "youtube": "https://youtu.be/5YPS3rQs5BU",
+    "lang": "Arabic",
+    "created_at": "Jul 27, 2021",
+    "time": "7:38",
+    "contents": {
+      "p1": "What is HTML?",
+      "p2": "What the difference between HTML & CSS & javascript?",
+      "p3": "What is tag in HTML?",
+      "p4": "Set the first HTML project"
+    },
+    "links": {
+      "VS-code": "https://code.visualstudio.com"
+    }
+  },
+  {
+    "title": "what is head tag in HTML",
+    "des": "",
+    "youtube": "",
+    "lang": "Arabic",
+    "created_at": "Jul 27, 2021",
+    "time": "11:01",
+    "contents": {
+      "p1": "Basic HTML skeleton",
+      "p2": "What is <head> tag?",
+      "p3": "What is <title> tag?",
+      "p4": "What is <meta> tag?",
+      "p5": "What is <link> tag?",
+      "p6": "How to add icon for title",
+      "p7": "3 important HTML concept"
+    }
+  },
+  {
+    "title": "HTML Text Formatting",
+    "des": "Formatting elements were designed to display special types of text",
+    "youtube": "https://youtu.be/3OSg3N_05qM",
+    "lang": "Arabic",
+    "created_at": "Jul 27, 2021",
+    "time": "9:12",
+    "contents": {
+      "p1": "heading tags <h1>,<h2>,<h3>,<h4>,<h5>,<h6>",
+      "p2": "paragraph tag <p>",
+      "p3": "Bold tag <b>",
+      "p4": "Small tag <small>",
+      "p5": "Mark tag <small>",
+      "p6": "Strong tag <strong>"
+    },
+    "links": {
+      "w3school": "https://www.w3schools.com/html/html_formatting.asp",
+      "vscode": "https://code.visualstudio.com"
+    }
+  },
+  {
+    "title": "Inline tag vs Block tag",
+    "des": "In this lecture we will get to know the difference inline tag vs block tag",
+    "youtube": "https://youtu.be/k_Js0ilS2RI",
+    "lang": "Arabic",
+    "created_at": "Jul 31, 2021",
+    "time": "07:22",
+    "contents": {
+      "p1": "inline tag vs block tag",
+      "p2": "How to if a tag is inline or block?"
+    },
+    "links": {
+      "Lecture Code": "https://drive.google.com/drive/folders/1UNiq0Ww6skhd1_xBJFf4ykrljNQeRYWX",
+      "W3school inline vs block": "https://www.w3schools.com/css/css_inline-block.asp",
+      "vscode": "https://code.visualstudio.com"
+    }
+  }
+]

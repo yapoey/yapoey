@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="blog-container">
     <header>
       <div class="header-area header-transparrent">
         <div class="main-header header-sticky">
@@ -54,10 +54,10 @@
         </div>
       </div>
     </header>
-    <main>
+    <main style="flex:1">
       <nuxt />
     </main>
-    <Footer />
+    <Footer class="blog-footer" />
   </div>
 </template>
 <script>
@@ -217,5 +217,10 @@ export default {
 <style lang="scss" scoped>
 main {
   padding-top: 75px;
+}
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 </style>

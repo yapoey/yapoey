@@ -8,7 +8,7 @@
     <!--    <PriceArea />-->
     <!--    <HireArea />-->
     <!--    <TestimonialArea />-->
-    <BlogArea />
+    <!-- <BlogArea /> -->
     <ContactArea />
   </div>
 </template>
@@ -22,7 +22,7 @@ import WorksArea from "~/components/WorksArea";
 import PriceArea from "~/components/PriceArea";
 import HireArea from "~/components/HireArea";
 import TestimonialArea from "~/components/TestimonialArea";
-import BlogArea from "~/components/BlogArea";
+// import BlogArea from "~/components/BlogArea";
 import ContactArea from "~/components/ContactArea";
 
 export default {
@@ -35,7 +35,7 @@ export default {
     // PriceArea,
     // HireArea,
     // TestimonialArea,
-    BlogArea,
+    // BlogArea,
     ContactArea,
   },
 };

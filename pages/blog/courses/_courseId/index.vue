@@ -39,7 +39,6 @@ export default {
             ".json"
         )
         .then((res) => {
-          console.log(res);
           this.courses = res;
         });
     },
