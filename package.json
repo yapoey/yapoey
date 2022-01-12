@@ -19,6 +19,8 @@
     "vue-typed-js": "^0.1.2"
   },
   "devDependencies": {
-    "@nuxtjs/google-analytics": "^2.4.0"
+    "@nuxtjs/google-analytics": "^2.4.0",
+    "sass": "^1.47.0",
+    "sass-loader": "10.1.1"
   }
 }

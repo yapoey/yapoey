@@ -17,7 +17,7 @@ export const en = {
     frontend: "Frontend developer.",
     backend: "Backend developer.",
     motto: "Start with whY and end with Yeah!",
-    shortCv: "Short Cv",
+    shortCv: "Resume",
   },
   ServiceArea: {
     services: "MY SERVICES",
@@ -38,12 +38,12 @@ export const en = {
   AboutArea: {
     aboutMe: "About Me",
     summery:
-      "Look at me. I am from Egypt, but I call South Korea home. I received my Bachelor’s degree from Hanyang University, the “engine” of Korea. Since beginning my journey as a freelance designer nearly five years ago, I've done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. I've always been drawn to the overlap between design and development. My skills are broad: from UX to design, front end to back end development. I enjoy each aspect, and love building sites from scratch for clients all over the world.",
+      "Look at me. I am from Egypt, but I call South Korea home. I enjoy creating things that live on the internet. My interest in web development started back in 2011 when I met my first Korean friend during the Arab Spring. So, after university in Egypt, I started a second bachelor's in computer science at Hanyang, one of the top universities in South Korea. Fast-forward to today. I’ve had the privilege of working at a Korean government office as a web developer, then with a Korean startup. My main focus these days is building accessible, inclusive products and digital experiences for various clients. I also recently launched my YouTube channel that covers everything you need to build a web app in Arabic.",
     name: "Name:",
     dob: "Date of birth:",
     address: "Address:",
     zipCode: "Zip code:",
-    downloadCv: "Download Cv",
+    downloadCv: "Resume",
     subCv: "Detalied Cv",
   },
   ResumeArea: {
@@ -51,6 +51,8 @@ export const en = {
     Education: "Education",
     Experience: "Experience",
     Skills: "Skills",
+    WebDevelop: "Web Developing",
+    WebHosting: "Hosting & Management",
     educations: [
       {
         year: "2009-2013",

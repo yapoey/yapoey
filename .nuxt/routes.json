@@ -1,0 +1,98 @@
+[
+  {
+    "name": "blog___en",
+    "path": "/blog",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/index.vue",
+    "chunkName": "pages/blog/index"
+  },
+  {
+    "name": "index___ko",
+    "path": "/ko",
+    "component": "/Users/yapoey/code/yapoey/pages/index.vue",
+    "chunkName": "pages/index"
+  },
+  {
+    "name": "blog-coding-test___en",
+    "path": "/blog/coding-test",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/coding-test/index.vue",
+    "chunkName": "pages/blog/coding-test/index"
+  },
+  {
+    "name": "blog-courses___en",
+    "path": "/blog/courses",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/courses/index.vue",
+    "chunkName": "pages/blog/courses/index"
+  },
+  {
+    "name": "blog___ko",
+    "path": "/ko/blog",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/index.vue",
+    "chunkName": "pages/blog/index"
+  },
+  {
+    "name": "blog-coding-test___ko",
+    "path": "/ko/blog/coding-test",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/coding-test/index.vue",
+    "chunkName": "pages/blog/coding-test/index"
+  },
+  {
+    "name": "blog-courses___ko",
+    "path": "/ko/blog/courses",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/courses/index.vue",
+    "chunkName": "pages/blog/courses/index"
+  },
+  {
+    "name": "blog-coding-test-categoryId___ko",
+    "path": "/ko/blog/coding-test/:categoryId",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/coding-test/_categoryId/index.vue",
+    "chunkName": "pages/blog/coding-test/_categoryId/index"
+  },
+  {
+    "name": "blog-courses-courseId___ko",
+    "path": "/ko/blog/courses/:courseId",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/courses/_courseId/index.vue",
+    "chunkName": "pages/blog/courses/_courseId/index"
+  },
+  {
+    "name": "blog-coding-test-categoryId-problemId___ko",
+    "path": "/ko/blog/coding-test/:categoryId?/:problemId",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/coding-test/_categoryId/_problemId/index.vue",
+    "chunkName": "pages/blog/coding-test/_categoryId/_problemId/index"
+  },
+  {
+    "name": "blog-courses-courseId-lecture___ko",
+    "path": "/ko/blog/courses/:courseId/:lecture",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/courses/_courseId/_lecture/index.vue",
+    "chunkName": "pages/blog/courses/_courseId/_lecture/index"
+  },
+  {
+    "name": "blog-coding-test-categoryId___en",
+    "path": "/blog/coding-test/:categoryId",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/coding-test/_categoryId/index.vue",
+    "chunkName": "pages/blog/coding-test/_categoryId/index"
+  },
+  {
+    "name": "blog-courses-courseId___en",
+    "path": "/blog/courses/:courseId",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/courses/_courseId/index.vue",
+    "chunkName": "pages/blog/courses/_courseId/index"
+  },
+  {
+    "name": "blog-coding-test-categoryId-problemId___en",
+    "path": "/blog/coding-test/:categoryId?/:problemId",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/coding-test/_categoryId/_problemId/index.vue",
+    "chunkName": "pages/blog/coding-test/_categoryId/_problemId/index"
+  },
+  {
+    "name": "blog-courses-courseId-lecture___en",
+    "path": "/blog/courses/:courseId/:lecture",
+    "component": "/Users/yapoey/code/yapoey/pages/blog/courses/_courseId/_lecture/index.vue",
+    "chunkName": "pages/blog/courses/_courseId/_lecture/index"
+  },
+  {
+    "name": "index___en",
+    "path": "/",
+    "component": "/Users/yapoey/code/yapoey/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]

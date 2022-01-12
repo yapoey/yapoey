@@ -1,4 +1,5 @@
 import Vue from 'vue'
+
 import Meta from 'vue-meta'
 import ClientOnly from 'vue-client-only'
 import NoSsr from 'vue-no-ssr'
@@ -11,10 +12,11 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_axios_288bee45 from 'nuxt_plugin_axios_288bee45' // Source: ./axios.js (mode: 'all')
-import nuxt_plugin_pluginrouting_33647261 from 'nuxt_plugin_pluginrouting_33647261' // Source: ./nuxt-i18n/plugin.routing.js (mode: 'all')
-import nuxt_plugin_pluginmain_2b6b7cae from 'nuxt_plugin_pluginmain_2b6b7cae' // Source: ./nuxt-i18n/plugin.main.js (mode: 'all')
-import nuxt_plugin_googleanalytics_30fc3cc1 from 'nuxt_plugin_googleanalytics_30fc3cc1' // Source: ./google-analytics.js (mode: 'client')
+import nuxt_plugin_axios_77e00236 from 'nuxt_plugin_axios_77e00236' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_pluginutils_771d1414 from 'nuxt_plugin_pluginutils_771d1414' // Source: ./nuxt-i18n/plugin.utils.js (mode: 'all')
+import nuxt_plugin_pluginrouting_23ec5dc1 from 'nuxt_plugin_pluginrouting_23ec5dc1' // Source: ./nuxt-i18n/plugin.routing.js (mode: 'all')
+import nuxt_plugin_pluginmain_46fa4d4e from 'nuxt_plugin_pluginmain_46fa4d4e' // Source: ./nuxt-i18n/plugin.main.js (mode: 'all')
+import nuxt_plugin_googleanalytics_3754efbe from 'nuxt_plugin_googleanalytics_3754efbe' // Source: ./google-analytics.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -41,19 +43,30 @@ Vue.component('NChild', NuxtChild)
 // Component: <Nuxt>
 Vue.component(Nuxt.name, Nuxt)
 
+Object.defineProperty(Vue.prototype, '$nuxt', {
+  get() {
+    const globalNuxt = this.$root.$options.$nuxt
+    if (process.client && !globalNuxt && typeof window !== 'undefined') {
+      return window.$nuxt
+    }
+    return globalNuxt
+  },
+  configurable: true
+})
+
 Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"})
 
 const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
-async function createApp (ssrContext) {
-  const router = await createRouter(ssrContext)
+async function createApp(ssrContext, config = {}) {
+  const router = await createRouter(ssrContext, config)
 
   // Create Root instance
 
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"yapoey","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My Portfolio"}],"bodyAttrs":{"id":"body"},"link":[{"rel":"shortcut icon","href":"\u002Fassets\u002Fimg\u002Fyap.png"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins:100,200,400,300,500,600,700"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:300,400,500,600,700,900"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fbootstrap.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Ffont-awesome.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fsimple-line-icons.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fslicknav.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fowl.carousel.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fslick.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fstyle.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fresponsive.css"}],"script":[{"src":"\u002Fassets\u002Fjs\u002Fjquery-3.2.0.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fpopper.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fbootstrap.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fjquery.slicknav.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fisotope.pkgd.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fowl.carousel.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fslick.min.js"},{"src":"\u002Fassets\u002Fjs\u002Ftyped.js"},{"src":"\u002Fassets\u002Fjs\u002Fjquery.scrollUp.min.js"}],"style":[]},
+    head: {"title":"yapoey","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"bodyAttrs":{"id":"body"},"link":[{"rel":"shortcut icon","href":"\u002Fassets\u002Fimg\u002Fyap.png"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins:100,200,400,300,500,600,700"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:300,400,500,600,700,900"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fbootstrap.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Ffont-awesome.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fsimple-line-icons.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fslicknav.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fowl.carousel.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fslick.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fstyle.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fresponsive.css"}],"script":[{"src":"\u002Fassets\u002Fjs\u002Fjquery-3.2.0.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fpopper.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fbootstrap.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fjquery.slicknav.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fisotope.pkgd.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fowl.carousel.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fslick.min.js"},{"src":"\u002Fassets\u002Fjs\u002Ftyped.js"},{"src":"\u002Fassets\u002Fjs\u002Fjquery.scrollUp.min.js"}],"style":[]},
 
     router,
     nuxt: {
@@ -121,7 +134,7 @@ async function createApp (ssrContext) {
     ssrContext
   })
 
-  const inject = function (key, value) {
+  function inject(key, value) {
     if (!key) {
       throw new Error('inject(key, value) has no key provided')
     }
@@ -132,6 +145,10 @@ async function createApp (ssrContext) {
     key = '$' + key
     // Add into app
     app[key] = value
+    // Add into context
+    if (!app.context[key]) {
+      app.context[key] = value
+    }
 
     // Check if plugin not already installed
     const installKey = '__nuxt_' + key + '_installed__'
@@ -141,7 +158,7 @@ async function createApp (ssrContext) {
     Vue[installKey] = true
     // Call Vue.use() to install the plugin into vm
     Vue.use(() => {
-      if (!Object.prototype.hasOwnProperty.call(Vue, key)) {
+      if (!Object.prototype.hasOwnProperty.call(Vue.prototype, key)) {
         Object.defineProperty(Vue.prototype, key, {
           get () {
             return this.$root.$options[key]
@@ -151,40 +168,72 @@ async function createApp (ssrContext) {
     })
   }
 
+  // Inject runtime config as $config
+  inject('config', config)
+
+  // Add enablePreview(previewData = {}) in context for plugins
+  if (process.static && process.client) {
+    app.context.enablePreview = function (previewData = {}) {
+      app.previewData = Object.assign({}, previewData)
+      inject('preview', previewData)
+    }
+  }
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_288bee45 === 'function') {
-    await nuxt_plugin_axios_288bee45(app.context, inject)
+  if (typeof nuxt_plugin_axios_77e00236 === 'function') {
+    await nuxt_plugin_axios_77e00236(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_pluginrouting_33647261 === 'function') {
-    await nuxt_plugin_pluginrouting_33647261(app.context, inject)
+  if (typeof nuxt_plugin_pluginutils_771d1414 === 'function') {
+    await nuxt_plugin_pluginutils_771d1414(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_pluginmain_2b6b7cae === 'function') {
-    await nuxt_plugin_pluginmain_2b6b7cae(app.context, inject)
+  if (typeof nuxt_plugin_pluginrouting_23ec5dc1 === 'function') {
+    await nuxt_plugin_pluginrouting_23ec5dc1(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_googleanalytics_30fc3cc1 === 'function') {
-    await nuxt_plugin_googleanalytics_30fc3cc1(app.context, inject)
+  if (typeof nuxt_plugin_pluginmain_46fa4d4e === 'function') {
+    await nuxt_plugin_pluginmain_46fa4d4e(app.context, inject)
   }
 
-  // If server-side, wait for async component to be resolved first
-  if (process.server && ssrContext && ssrContext.url) {
-    await new Promise((resolve, reject) => {
-      router.push(ssrContext.url, resolve, () => {
-        // navigated to a different route in router guard
-        const unregister = router.afterEach(async (to, from, next) => {
+  if (process.client && typeof nuxt_plugin_googleanalytics_3754efbe === 'function') {
+    await nuxt_plugin_googleanalytics_3754efbe(app.context, inject)
+  }
+
+  // Lock enablePreview in context
+  if (process.static && process.client) {
+    app.context.enablePreview = function () {
+      console.warn('You cannot call enablePreview() outside a plugin.')
+    }
+  }
+
+  // Wait for async component to be resolved first
+  await new Promise((resolve, reject) => {
+    // Ignore 404s rather than blindly replacing URL in browser
+    if (process.client) {
+      const { route } = router.resolve(app.context.route.fullPath)
+      if (!route.matched.length) {
+        return resolve()
+      }
+    }
+    router.replace(app.context.route.fullPath, resolve, (err) => {
+      // https://github.com/vuejs/vue-router/blob/v3.4.3/src/util/errors.js
+      if (!err._isRouter) return reject(err)
+      if (err.type !== 2 /* NavigationFailureType.redirected */) return resolve()
+
+      // navigated to a different route in router guard
+      const unregister = router.afterEach(async (to, from) => {
+        if (process.server && ssrContext && ssrContext.url) {
           ssrContext.url = to.fullPath
-          app.context.route = await getRouteData(to)
-          app.context.params = to.params || {}
-          app.context.query = to.query || {}
-          unregister()
-          resolve()
-        })
+        }
+        app.context.route = await getRouteData(to)
+        app.context.params = to.params || {}
+        app.context.query = to.query || {}
+        unregister()
+        resolve()
       })
     })
-  }
+  })
 
   return {
     app,
