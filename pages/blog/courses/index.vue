@@ -55,7 +55,7 @@ export default {
   height: 250px;
   font-family: monospace;
   font-size: 30px;
-  color: #fff;
+  color: var(--white-color);
   display: flex;
   justify-content: center;
   align-items: center;

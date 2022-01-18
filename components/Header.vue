@@ -7,9 +7,24 @@
           <div class="row align-items-center">
             <!-- Logo -->
             <div class="col-xl-2 col-lg-2 col-md-2">
-              <div class="logo">
+              <div
+                class="logo"
+                :style="
+                  $isDark
+                    ? 'background-image: url(/assets/img/logo.white.png)'
+                    : 'background-image: url(/assets/img/logo.png)'
+                "
+              >
                 <a href="/" @click="$ga.event('Header', 'logo')"
-                  ><div class="logo" style="height: 55px; width: 170px"></div
+                  ><div
+                    class="logo"
+                    style="height: 55px; width: 170px"
+                    :style="
+                      $isDark
+                        ? 'background-image: url(/assets/img/logo.white.png)'
+                        : 'background-image: url(/assets/img/logo.png)'
+                    "
+                  ></div
                 ></a>
               </div>
             </div>
@@ -84,6 +99,25 @@
                         <li><a href="/ko">한국어</a></li>
                       </ul>
                     </li>
+                    <li class="nav-item">
+                      <img
+                        v-if="$isDark"
+                        src="/assets/img/sun.png"
+                        width="24"
+                        height="24"
+                        alt="sun_img"
+                        @click="$isDark = false"
+                      />
+                      <img
+                        v-else
+                        src="/assets/img/moon.png"
+                        width="24"
+                        height="24"
+                        alt="sun_img"
+                        @click="$isDark = true"
+                      />
+                    </li>
+                    <li></li>
                   </ul>
                 </nav>
               </div>

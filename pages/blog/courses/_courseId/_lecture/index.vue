@@ -38,7 +38,7 @@
           <div v-for="(l, key, index) in item.links" :key="index">
             <h4>{{ key }}</h4>
             <p>
-              <a style="word-break: break-all;" :href="l" target="_blank">{{
+              <a style="word-break: break-all" :href="l" target="_blank">{{
                 l
               }}</a>
             </p>
@@ -90,7 +90,7 @@ section {
   justify-items: center;
   align-items: center;
   font-size: 30px;
-  color: #fff;
+  color: var(--white-color);
   font-family: monospace;
   position: relative;
   min-height: 230px;

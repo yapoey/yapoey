@@ -7,13 +7,13 @@ ul {
 
   li {
     min-width: 300px;
-    background: #fff;
+    background: var(--white-color);
     border-radius: 10px;
     cursor: pointer;
     position: relative;
     &.problem-card {
       flex-direction: column;
-      background-color: #f9f9ff;
+      background-color: var(--sky-blue-color);
       height: 200px;
       display: flex;
       align-items: flex-start;

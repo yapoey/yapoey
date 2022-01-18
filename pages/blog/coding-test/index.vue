@@ -60,7 +60,7 @@ export default {
 .problem-card {
   background-color: #21d4fd;
   background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
-  color: #fff;
+  color: var(--white-color);
   height: 250px;
   display: flex;
   justify-content: center;

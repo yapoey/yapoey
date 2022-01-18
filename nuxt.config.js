@@ -31,13 +31,11 @@ export default {
       },
       {
         rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700",
+        href: "https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700",
       },
       {
         rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,900",
+        href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,900",
       },
 
       { rel: "stylesheet", href: "/assets/css/bootstrap.min.css" },
@@ -72,7 +70,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ["~plugins/dark-mode.js"],
   /*
    ** Nuxt.js dev-modules
    */

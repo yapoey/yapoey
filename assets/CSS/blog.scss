@@ -30,11 +30,11 @@ section {
     h3 {
       font-weight: 600;
       font-size: 24px;
-      color: #fff;
+      color: var(--white-color);
       font-family: Poppins;
     }
     p {
-      color: #fff;
+      color: var(--white-color);
       margin-bottom: 4px;
       &:first-of-type {
         font-size: 18px;
@@ -52,7 +52,7 @@ section {
   height: 250px;
   font-family: monospace;
   font-size: 30px;
-  color: #fff;
+  color: var(--white-color);
   display: flex;
   justify-content: center;
   align-items: center;

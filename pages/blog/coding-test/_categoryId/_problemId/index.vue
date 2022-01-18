@@ -72,7 +72,7 @@ section {
   border-radius: 10px;
   padding: 16px;
   pre {
-    color: #fff;
+    color: var(--white-color);
   }
   margin-bottom: 20px;
 }

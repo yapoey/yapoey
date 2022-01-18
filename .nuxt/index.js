@@ -17,6 +17,7 @@ import nuxt_plugin_pluginutils_771d1414 from 'nuxt_plugin_pluginutils_771d1414' 
 import nuxt_plugin_pluginrouting_23ec5dc1 from 'nuxt_plugin_pluginrouting_23ec5dc1' // Source: ./nuxt-i18n/plugin.routing.js (mode: 'all')
 import nuxt_plugin_pluginmain_46fa4d4e from 'nuxt_plugin_pluginmain_46fa4d4e' // Source: ./nuxt-i18n/plugin.main.js (mode: 'all')
 import nuxt_plugin_googleanalytics_3754efbe from 'nuxt_plugin_googleanalytics_3754efbe' // Source: ./google-analytics.js (mode: 'client')
+import nuxt_plugin_darkmode_866ed918 from 'nuxt_plugin_darkmode_866ed918' // Source: ../plugins/dark-mode.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -198,6 +199,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (process.client && typeof nuxt_plugin_googleanalytics_3754efbe === 'function') {
     await nuxt_plugin_googleanalytics_3754efbe(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_darkmode_866ed918 === 'function') {
+    await nuxt_plugin_darkmode_866ed918(app.context, inject)
   }
 
   // Lock enablePreview in context
