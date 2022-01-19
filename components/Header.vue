@@ -3,8 +3,8 @@
   <header>
     <div class="header-area header-transparrent">
       <div class="main-header header-sticky">
-        <div class="container">
-          <div class="row align-items-center">
+        <div class="container d-flex position-relative">
+          <div class="row align-items-center flex-grow-1">
             <!-- Logo -->
             <div class="col-xl-2 col-lg-2 col-md-2">
               <div
@@ -42,14 +42,14 @@
                         {{ $t("Header.home") }}</a
                       >
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a
                         class="nav-link transition"
                         @click="$ga.event('Header', 'services')"
                         href="#services"
                         >{{ $t("Header.services") }}</a
                       >
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                       <a
                         class="nav-link transition"
@@ -99,25 +99,6 @@
                         <li><a href="/ko">한국어</a></li>
                       </ul>
                     </li>
-                    <li class="nav-item">
-                      <img
-                        v-if="$isDark"
-                        src="/assets/img/sun.png"
-                        width="24"
-                        height="24"
-                        alt="sun_img"
-                        @click="$isDark = false"
-                      />
-                      <img
-                        v-else
-                        src="/assets/img/moon.png"
-                        width="24"
-                        height="24"
-                        alt="sun_img"
-                        @click="$isDark = true"
-                      />
-                    </li>
-                    <li></li>
                   </ul>
                 </nav>
               </div>
@@ -126,6 +107,27 @@
             <div class="col-12">
               <div class="mobile_menu d-block d-lg-none"></div>
             </div>
+          </div>
+          <div
+            class="d-flex justify-content-center align-items-center position-absolute h-100"
+            style="cursor: pointer; top: 0; right: 10px"
+          >
+            <img
+              v-if="$isDark"
+              src="/assets/img/sun.png"
+              width="24"
+              height="24"
+              alt="sun_img"
+              @click="$isDark = false"
+            />
+            <img
+              v-else
+              src="/assets/img/moon.png"
+              width="24"
+              height="24"
+              alt="sun_img"
+              @click="$isDark = true"
+            />
           </div>
         </div>
       </div>

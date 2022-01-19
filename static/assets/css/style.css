@@ -94,12 +94,14 @@ figcaption {
   --white-color: #fff;
   ---little-dark: #222222;
   --yapoey-color: #9767cd;
+  --black-color: #000000;
 }
 .dark-theme {
   --sky-blue-color: #1a1c1d !important;
   --white-color: #1a1c1d !important;
   ---little-dark: #fff !important;
   --yapoey-color: #9767cd;
+  --black-color: #fff !important;
 }
 
 ::-moz-selection {
@@ -461,7 +463,7 @@ ol {
   position: relative;
   overflow: hidden;
 }
-.service-area::before {
+.before-space::before {
   position: absolute;
   content: "";
   right: 0px;
@@ -549,7 +551,7 @@ h2.service-title {
   margin-bottom: 0;
 }
 #navi li a {
-  color: #000000;
+  color: var(--black-color);
 }
 #navi li a.current {
   color: #90acd1;
@@ -654,7 +656,7 @@ h2.service-title {
   position: relative;
   font-size: 12px;
   line-height: 1.2;
-  color: #000000;
+  color: var(--black-color);
   font-weight: 600;
   position: relative;
   overflow: visible;
@@ -676,7 +678,7 @@ h2.service-title {
   right: 0;
   font-size: 16px;
   font-weight: 500;
-  color: #000000;
+  color: var(--black-color);
 }
 
 /* =================================== */
@@ -1355,6 +1357,7 @@ textarea.form-control {
 
 .header-area .slicknav_btn {
   top: -43px;
+  right: 40px;
 }
 
 .slicknav_menu .slicknav_nav a:hover {
@@ -1907,7 +1910,7 @@ ol {
   position: relative;
   overflow: hidden;
 }
-.service-area::before {
+.before-space::before {
   position: absolute;
   content: "";
   right: 0px;
@@ -1995,7 +1998,7 @@ h2.service-title {
   margin-bottom: 0;
 }
 #navi li a {
-  color: #000000;
+  color: var(--black-color);
 }
 #navi li a.current {
   color: #90acd1;
@@ -2100,7 +2103,7 @@ h2.service-title {
   position: relative;
   font-size: 12px;
   line-height: 1.2;
-  color: #000000;
+  color: var(--black-color);
   font-weight: 600;
   position: relative;
   overflow: visible;
@@ -2122,7 +2125,7 @@ h2.service-title {
   right: 0;
   font-size: 16px;
   font-weight: 500;
-  color: #000000;
+  color: var(--black-color);
 }
 
 /* =================================== */
