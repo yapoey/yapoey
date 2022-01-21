@@ -70,7 +70,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~plugins/dark-mode.js"],
+  plugins: [],
   /*
    ** Nuxt.js dev-modules
    */

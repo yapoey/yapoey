@@ -24,6 +24,7 @@
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 export default {
+  middleware: "init",
   components: {
     Header,
     Footer,
@@ -32,12 +33,13 @@ export default {
     return {
       title: "yapoey",
       bodyAttrs: {
-        class: this.$isDark ? "dark-theme" : "",
+        class: this.$store.getters.isDark ? "dark-theme" : "",
       },
     };
   },
 
   mounted() {
+    console.log("Mounted layout", this.$store.getters.isDark);
     /** ------- Pre Loader **/
     $(window).on("load", function () {
       $(".preloader-area").delay(200).fadeOut(500);

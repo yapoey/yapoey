@@ -1,16 +1,16 @@
 <template>
   <!-- Header Start -->
   <header>
-    <div class="header-area header-transparrent">
-      <div class="main-header header-sticky">
-        <div class="container d-flex position-relative">
+    <div class="header-area header-transparrent d-flex">
+      <div class="main-header header-sticky w-100">
+        <div class="container position-relative">
           <div class="row align-items-center flex-grow-1">
             <!-- Logo -->
             <div class="col-xl-2 col-lg-2 col-md-2">
               <div
                 class="logo"
                 :style="
-                  $isDark
+                  $store.getters.isDark
                     ? 'background-image: url(/assets/img/logo.white.png)'
                     : 'background-image: url(/assets/img/logo.png)'
                 "
@@ -20,7 +20,7 @@
                     class="logo"
                     style="height: 55px; width: 170px"
                     :style="
-                      $isDark
+                      $store.getters.isDark
                         ? 'background-image: url(/assets/img/logo.white.png)'
                         : 'background-image: url(/assets/img/logo.png)'
                     "
@@ -90,7 +90,7 @@
                         >{{ $t("Header.blog") }}</nuxt-link
                       >
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="margin-left: 15px">
                       <a class="nav-link transition" href="#">{{
                         $t("Header.languages")
                       }}</a>
@@ -98,6 +98,24 @@
                         <li><a href="/">English</a></li>
                         <li><a href="/ko">한국어</a></li>
                       </ul>
+                    </li>
+                    <li class="nav-item d-none d-lg-inline">
+                      <img
+                        v-if="$store.getters.isDark"
+                        src="/assets/img/sun.png"
+                        width="24"
+                        height="24"
+                        alt="sun_img"
+                        @click="setColorMode('light')"
+                      />
+                      <img
+                        v-else
+                        src="/assets/img/moon.png"
+                        width="24"
+                        height="24"
+                        alt="sun_img"
+                        @click="setColorMode('dark')"
+                      />
                     </li>
                   </ul>
                 </nav>
@@ -109,16 +127,16 @@
             </div>
           </div>
           <div
-            class="d-flex justify-content-center align-items-center position-absolute h-100"
-            style="cursor: pointer; top: 0; right: 10px"
+            class="d-flex d-inline d-lg-none justify-content-center align-items-center position-absolute h-100"
+            style="cursor: pointer; top: 0; right: 15px"
           >
             <img
-              v-if="$isDark"
+              v-if="$store.getters.isDark"
               src="/assets/img/sun.png"
               width="24"
               height="24"
               alt="sun_img"
-              @click="$isDark = false"
+              @click="setColorMode('light')"
             />
             <img
               v-else
@@ -126,7 +144,7 @@
               width="24"
               height="24"
               alt="sun_img"
-              @click="$isDark = true"
+              @click="setColorMode('dark')"
             />
           </div>
         </div>
@@ -142,6 +160,9 @@ export default {
   methods: {
     changeLang(lang) {
       window.location.href = "/" + (lang === "en" ? "" : lang);
+    },
+    setColorMode(v) {
+      this.$store.dispatch("setColorMode", v);
     },
   },
 };

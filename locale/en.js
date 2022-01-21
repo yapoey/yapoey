@@ -7,7 +7,7 @@ export const en = {
     works: "Works",
     contact: "Contact",
     blog: "Blog",
-    languages: "languages",
+    languages: "lang",
   },
   HeroArea: {
     hey: "HEY! I AM",
@@ -132,8 +132,7 @@ export const en = {
         company: "H&Consulting",
         country: "Korea",
         duration: "2017/01/01-2017/12/01",
-        des:
-          "Maintained, updated and translated the site http://arabic.visitmedicalkorea.com/arabic from Korean/English to Arabic.",
+        des: "Maintained, updated and translated the site http://arabic.visitmedicalkorea.com/arabic from Korean/English to Arabic.",
       },
       {
         title: "Full Stack Developer",
@@ -304,8 +303,7 @@ export const en = {
     sendMsg: "Send message Now",
   },
   HireArea: {
-    des:
-      "Need a professional, communicative & punctual software engineer with extensive full-stack web development skills for your next project? Have an application you are interested in developing with web technology? I’d love to work with you. I can take your project from concept to completion!",
+    des: "Need a professional, communicative & punctual software engineer with extensive full-stack web development skills for your next project? Have an application you are interested in developing with web technology? I’d love to work with you. I can take your project from concept to completion!",
   },
   Common: {
     download: "Download",

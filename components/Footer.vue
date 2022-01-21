@@ -8,7 +8,7 @@
             <div class="footer-logo text-center">
               <a href="#">
                 <img
-                  v-if="$isDark"
+                  v-if="$store.getters.isDark"
                   width="200"
                   src="/assets/img/logo.white.png"
                   alt="logo"

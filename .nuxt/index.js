@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+import Vuex from 'vuex'
 import Meta from 'vue-meta'
 import ClientOnly from 'vue-client-only'
 import NoSsr from 'vue-no-ssr'
@@ -9,15 +9,15 @@ import NuxtError from '../layouts/error.vue'
 import Nuxt from './components/nuxt.js'
 import App from './App.js'
 import { setContext, getLocation, getRouteData, normalizeError } from './utils'
+import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_axios_77e00236 from 'nuxt_plugin_axios_77e00236' // Source: ./axios.js (mode: 'all')
-import nuxt_plugin_pluginutils_771d1414 from 'nuxt_plugin_pluginutils_771d1414' // Source: ./nuxt-i18n/plugin.utils.js (mode: 'all')
-import nuxt_plugin_pluginrouting_23ec5dc1 from 'nuxt_plugin_pluginrouting_23ec5dc1' // Source: ./nuxt-i18n/plugin.routing.js (mode: 'all')
-import nuxt_plugin_pluginmain_46fa4d4e from 'nuxt_plugin_pluginmain_46fa4d4e' // Source: ./nuxt-i18n/plugin.main.js (mode: 'all')
-import nuxt_plugin_googleanalytics_3754efbe from 'nuxt_plugin_googleanalytics_3754efbe' // Source: ./google-analytics.js (mode: 'client')
-import nuxt_plugin_darkmode_866ed918 from 'nuxt_plugin_darkmode_866ed918' // Source: ../plugins/dark-mode.js (mode: 'all')
+import nuxt_plugin_axios_288bee45 from 'nuxt_plugin_axios_288bee45' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_pluginutils_6e263296 from 'nuxt_plugin_pluginutils_6e263296' // Source: ./nuxt-i18n/plugin.utils.js (mode: 'all')
+import nuxt_plugin_pluginrouting_33647261 from 'nuxt_plugin_pluginrouting_33647261' // Source: ./nuxt-i18n/plugin.routing.js (mode: 'all')
+import nuxt_plugin_pluginmain_2b6b7cae from 'nuxt_plugin_pluginmain_2b6b7cae' // Source: ./nuxt-i18n/plugin.main.js (mode: 'all')
+import nuxt_plugin_googleanalytics_30fc3cc1 from 'nuxt_plugin_googleanalytics_30fc3cc1' // Source: ./google-analytics.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -59,16 +59,35 @@ Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n
 
 const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
+const originalRegisterModule = Vuex.Store.prototype.registerModule
+
+function registerModule (path, rawModule, options = {}) {
+  const preserveState = process.client && (
+    Array.isArray(path)
+      ? !!path.reduce((namespacedState, path) => namespacedState && namespacedState[path], this.state)
+      : path in this.state
+  )
+  return originalRegisterModule.call(this, path, rawModule, { preserveState, ...options })
+}
+
 async function createApp(ssrContext, config = {}) {
   const router = await createRouter(ssrContext, config)
+
+  const store = createStore(ssrContext)
+  // Add this.$router into store actions/mutations
+  store.$router = router
+
+  // Fix SSR caveat https://github.com/nuxt/nuxt.js/issues/3757#issuecomment-414689141
+  store.registerModule = registerModule
 
   // Create Root instance
 
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"yapoey","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"bodyAttrs":{"id":"body"},"link":[{"rel":"shortcut icon","href":"\u002Fassets\u002Fimg\u002Fyap.png"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins:100,200,400,300,500,600,700"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:300,400,500,600,700,900"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fbootstrap.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Ffont-awesome.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fsimple-line-icons.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fslicknav.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fowl.carousel.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fslick.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fstyle.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fresponsive.css"}],"script":[{"src":"\u002Fassets\u002Fjs\u002Fjquery-3.2.0.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fpopper.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fbootstrap.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fjquery.slicknav.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fisotope.pkgd.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fowl.carousel.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fslick.min.js"},{"src":"\u002Fassets\u002Fjs\u002Ftyped.js"},{"src":"\u002Fassets\u002Fjs\u002Fjquery.scrollUp.min.js"}],"style":[]},
+    head: {"title":"yapoey","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My Portfolio"}],"bodyAttrs":{"id":"body"},"link":[{"rel":"shortcut icon","href":"\u002Fassets\u002Fimg\u002Fyap.png"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins:100,200,400,300,500,600,700"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:300,400,500,600,700,900"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fbootstrap.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Ffont-awesome.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fsimple-line-icons.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fslicknav.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fowl.carousel.min.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fslick.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fstyle.css"},{"rel":"stylesheet","href":"\u002Fassets\u002Fcss\u002Fresponsive.css"}],"script":[{"src":"\u002Fassets\u002Fjs\u002Fjquery-3.2.0.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fpopper.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fbootstrap.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fjquery.slicknav.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fisotope.pkgd.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fowl.carousel.min.js"},{"src":"\u002Fassets\u002Fjs\u002Fslick.min.js"},{"src":"\u002Fassets\u002Fjs\u002Ftyped.js"},{"src":"\u002Fassets\u002Fjs\u002Fjquery.scrollUp.min.js"}],"style":[]},
 
+    store,
     router,
     nuxt: {
       defaultTransition,
@@ -113,6 +132,9 @@ async function createApp(ssrContext, config = {}) {
     ...App
   }
 
+  // Make app available into store via this.app
+  store.app = app
+
   const next = ssrContext ? ssrContext.next : location => app.router.push(location)
   // Resolve route
   let route
@@ -125,6 +147,7 @@ async function createApp(ssrContext, config = {}) {
 
   // Set context to app.context
   await setContext(app, {
+    store,
     route,
     next,
     error: app.nuxt.error.bind(app),
@@ -151,6 +174,9 @@ async function createApp(ssrContext, config = {}) {
       app.context[key] = value
     }
 
+    // Add into store
+    store[key] = app[key]
+
     // Check if plugin not already installed
     const installKey = '__nuxt_' + key + '_installed__'
     if (Vue[installKey]) {
@@ -172,6 +198,13 @@ async function createApp(ssrContext, config = {}) {
   // Inject runtime config as $config
   inject('config', config)
 
+  if (process.client) {
+    // Replace store state before plugins execution
+    if (window.__NUXT__ && window.__NUXT__.state) {
+      store.replaceState(window.__NUXT__.state)
+    }
+  }
+
   // Add enablePreview(previewData = {}) in context for plugins
   if (process.static && process.client) {
     app.context.enablePreview = function (previewData = {}) {
@@ -181,28 +214,24 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_77e00236 === 'function') {
-    await nuxt_plugin_axios_77e00236(app.context, inject)
+  if (typeof nuxt_plugin_axios_288bee45 === 'function') {
+    await nuxt_plugin_axios_288bee45(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_pluginutils_771d1414 === 'function') {
-    await nuxt_plugin_pluginutils_771d1414(app.context, inject)
+  if (typeof nuxt_plugin_pluginutils_6e263296 === 'function') {
+    await nuxt_plugin_pluginutils_6e263296(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_pluginrouting_23ec5dc1 === 'function') {
-    await nuxt_plugin_pluginrouting_23ec5dc1(app.context, inject)
+  if (typeof nuxt_plugin_pluginrouting_33647261 === 'function') {
+    await nuxt_plugin_pluginrouting_33647261(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_pluginmain_46fa4d4e === 'function') {
-    await nuxt_plugin_pluginmain_46fa4d4e(app.context, inject)
+  if (typeof nuxt_plugin_pluginmain_2b6b7cae === 'function') {
+    await nuxt_plugin_pluginmain_2b6b7cae(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_googleanalytics_3754efbe === 'function') {
-    await nuxt_plugin_googleanalytics_3754efbe(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_darkmode_866ed918 === 'function') {
-    await nuxt_plugin_darkmode_866ed918(app.context, inject)
+  if (process.client && typeof nuxt_plugin_googleanalytics_30fc3cc1 === 'function') {
+    await nuxt_plugin_googleanalytics_30fc3cc1(app.context, inject)
   }
 
   // Lock enablePreview in context
@@ -241,6 +270,7 @@ async function createApp(ssrContext, config = {}) {
   })
 
   return {
+    store,
     app,
     router
   }

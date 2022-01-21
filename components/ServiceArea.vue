@@ -2,7 +2,7 @@
   <!-- Services Area Start -->
   <section
     class="service-area section-padding"
-    :class="[$isDark ? '' : 'before-space']"
+    :class="[$store.getters.isDark ? '' : 'before-space']"
     id="services"
   >
     <div class="container">
