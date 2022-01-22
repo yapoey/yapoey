@@ -39,7 +39,6 @@ export default {
   },
 
   mounted() {
-    console.log("Mounted layout", this.$store.getters.isDark);
     /** ------- Pre Loader **/
     $(window).on("load", function () {
       $(".preloader-area").delay(200).fadeOut(500);

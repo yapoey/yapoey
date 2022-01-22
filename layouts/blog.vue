@@ -1,15 +1,30 @@
 <template>
   <div class="blog-container">
     <header>
-      <div class="header-area header-transparrent">
-        <div class="main-header header-sticky">
-          <div class="container">
+      <div class="header-area header-transparrent d-flex">
+        <div class="main-header header-sticky w-100">
+          <div class="container position-relative">
             <div class="row align-items-center">
               <!-- Logo -->
               <div class="col-xl-2 col-lg-2 col-md-2">
-                <div class="logo">
+                <div
+                  class="logo"
+                  :style="
+                    $store.getters.isDark
+                      ? 'background-image: url(/assets/img/logo.white.png)'
+                      : 'background-image: url(/assets/img/logo.png)'
+                  "
+                >
                   <a href="/" @click="$ga.event('Header', 'logo')"
-                    ><div class="logo" style="height: 55px; width: 170px"></div
+                    ><div
+                      class="logo"
+                      style="height: 55px; width: 170px"
+                      :style="
+                        $store.getters.isDark
+                          ? 'background-image: url(/assets/img/logo.white.png)'
+                          : 'background-image: url(/assets/img/logo.png)'
+                      "
+                    ></div
                   ></a>
                 </div>
               </div>
@@ -41,6 +56,24 @@
                           >Coding-test</nuxt-link
                         >
                       </li>
+                      <li class="nav-item d-none d-lg-inline">
+                        <img
+                          v-if="$store.getters.isDark"
+                          src="/assets/img/sun.png"
+                          width="24"
+                          height="24"
+                          alt="sun_img"
+                          @click="setColorMode('light')"
+                        />
+                        <img
+                          v-else
+                          src="/assets/img/moon.png"
+                          width="24"
+                          height="24"
+                          alt="sun_img"
+                          @click="setColorMode('dark')"
+                        />
+                      </li>
                     </ul>
                   </nav>
                 </div>
@@ -50,11 +83,32 @@
                 <div class="mobile_menu d-block d-lg-none"></div>
               </div>
             </div>
+            <div
+              class="d-flex d-inline d-lg-none justify-content-center align-items-center position-absolute h-100"
+              style="cursor: pointer; top: 0; right: 15px"
+            >
+              <img
+                v-if="$store.getters.isDark"
+                src="/assets/img/sun.png"
+                width="24"
+                height="24"
+                alt="sun_img"
+                @click="setColorMode('light')"
+              />
+              <img
+                v-else
+                src="/assets/img/moon.png"
+                width="24"
+                height="24"
+                alt="sun_img"
+                @click="setColorMode('dark')"
+              />
+            </div>
           </div>
         </div>
       </div>
     </header>
-    <main style="flex:1">
+    <main style="flex: 1">
       <nuxt />
     </main>
     <Footer class="blog-footer" />
@@ -66,12 +120,19 @@ export default {
   components: {
     Footer,
   },
+  middleware: "init",
+  head() {
+    return {
+      title: "yapoey Blog",
+      bodyAttrs: {
+        class: this.$store.getters.isDark ? "dark-theme" : "",
+      },
+    };
+  },
   mounted() {
     /** ------- Pre Loader **/
-    $(window).on("load", function() {
-      $(".preloader-area")
-        .delay(200)
-        .fadeOut(500);
+    $(window).on("load", function () {
+      $(".preloader-area").delay(200).fadeOut(500);
     });
 
     $("body").scrollspy({ target: "#navigation", spy: "scroll", offset: 300 });
@@ -94,7 +155,7 @@ export default {
 
     /* Smooth Scrolling Using Navigation Menu */
 
-    $('.nav-link[href*="#"]').on("click", function(e) {
+    $('.nav-link[href*="#"]').on("click", function (e) {
       $("html,body").animate(
         {
           scrollTop: $($(this).attr("href")).offset().top - 70,
@@ -106,7 +167,7 @@ export default {
 
     /*  Custom Sticky Menu  */
 
-    $(window).on("scroll", function() {
+    $(window).on("scroll", function () {
       var scroll = $(window).scrollTop();
       if (scroll < 245) {
         $(".header-sticky").removeClass("sticky-bar");
@@ -143,16 +204,16 @@ export default {
       contentType: "html", // or text
       // defaults to false for infinite loop
       loopCount: false,
-      callback: function() {
+      callback: function () {
         //call back after one loop
         foo();
       },
-      resetCallback: function() {
+      resetCallback: function () {
         newTyped();
       },
     });
 
-    $(".reset").click(function() {
+    $(".reset").click(function () {
       "use strict";
       $("#typed").typed("reset");
     });
@@ -167,7 +228,7 @@ export default {
 
     // Resume Navigation
 
-    (function() {
+    (function () {
       //variable that will hold the href attr of the links in the menu
       var sections = [];
       //variable that stores the id of the section
@@ -175,7 +236,7 @@ export default {
       //variable for the selection of the anchors in the navbar
       var $navbara = $("#navi a");
 
-      $navbara.on("click", function(e) {
+      $navbara.on("click", function (e) {
         //prevent the page from refreshing
         e.preventDefault();
         //set the top offset animation and speed
@@ -189,11 +250,11 @@ export default {
       });
 
       //select all the anchors in the navbar one after another
-      $navbara.each(function() {
+      $navbara.each(function () {
         // and adds them in the sections variable
         sections.push($($(this).attr("href")));
       });
-      $(window).on("scroll", function(e) {
+      $(window).on("scroll", function (e) {
         // scrollTop retains the value of the scroll top with the reference at the middle of the page
         var scrollTop = $(this).scrollTop() + $(window).height() / 2;
         //cycle through the values in sections array
@@ -211,6 +272,11 @@ export default {
         }
       });
     })();
+  },
+  methods: {
+    setColorMode(v) {
+      this.$store.dispatch("setColorMode", v);
+    },
   },
 };
 </script>

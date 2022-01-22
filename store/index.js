@@ -8,7 +8,6 @@ const createStore = () => {
     },
     mutations: {
       setMode(state, envMode) {
-        console.log(envMode);
         Cookie.set("mode", envMode);
         state.mode = envMode;
       },
@@ -23,16 +22,15 @@ const createStore = () => {
             let cookieColorMode = req.headers.cookie
               .split(";")
               .find((c) => c.trim().startsWith("mode=", ""));
-            console.log("yapoeyt", cookieColorMode);
+
             if (!cookieColorMode) {
               cookieColorMode = "light";
             }
-            mode = cookieColorMode;
+            mode = cookieColorMode.replace("mode=", "").trim();
           }
         } else {
           mode = Cookie.get("mode");
         }
-        console.log("hey hey I am oiuuuiuuuuu", mode);
         vuexContext.commit("setMode", mode);
       },
       setColorMode(vuexContext, mode) {

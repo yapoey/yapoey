@@ -80,6 +80,9 @@ section {
   }
   .intro {
     display: flex;
+    .lecture {
+      max-width: 450px;
+    }
     div:nth-child(1) {
       width: 35%;
     }

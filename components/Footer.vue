@@ -18,6 +18,9 @@
               <h4>{{ $t("Common.follow") }}</h4>
             </div>
             <div class="footer-social text-center">
+              <a href="https://www.youtube.com/c/yapoey-tech" target="_blank"
+                ><i class="fa fa-youtube-play transition"></i
+              ></a>
               <a href="https://www.facebook.com/myapoey/" target="_blank"
                 ><i class="fa fa-facebook transition"></i
               ></a>
