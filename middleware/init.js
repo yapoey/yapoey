@@ -1,3 +1,3 @@
-export default function (context) {
-  context.store.dispatch("initColorMode", context.req);
+export default function ({ store, req }) {
+  store.dispatch("initColorMode", req);
 }

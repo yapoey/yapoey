@@ -120,7 +120,6 @@ export default {
   components: {
     Footer,
   },
-  middleware: "init",
   head() {
     return {
       title: "yapoey Blog",

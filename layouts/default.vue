@@ -24,7 +24,7 @@
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 export default {
-  middleware: "init",
+  // middleware: ["init"],
   components: {
     Header,
     Footer,
@@ -37,8 +37,9 @@ export default {
       },
     };
   },
-
   mounted() {
+    this.$store.dispatch("initColorMode");
+
     /** ------- Pre Loader **/
     $(window).on("load", function () {
       $(".preloader-area").delay(200).fadeOut(500);

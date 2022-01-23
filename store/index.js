@@ -26,11 +26,13 @@ const createStore = () => {
             if (!cookieColorMode) {
               cookieColorMode = "light";
             }
+
             mode = cookieColorMode.replace("mode=", "").trim();
           }
         } else {
           mode = Cookie.get("mode");
         }
+
         vuexContext.commit("setMode", mode);
       },
       setColorMode(vuexContext, mode) {

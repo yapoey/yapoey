@@ -7,6 +7,7 @@ export default {
     host: "0.0.0.0", // default: localhost
   },
   mode: "universal",
+  target: "server",
   /*
    ** Headers of the page
    */
@@ -99,6 +100,9 @@ export default {
         // ar,
       },
     },
+  },
+  router: {
+    middleware: "init",
   },
   /*
    ** Build configuration
