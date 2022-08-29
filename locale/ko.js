@@ -130,8 +130,7 @@ export const ko = {
         company: "에이치앤컨설팅",
         country: "대한민국",
         duration: "2017-01 - 2017-12",
-        des:
-          "사이트 유지보수 및 업데이트, 한국어/영어 - 아랍어 번역site http://arabic.visitmedicalkorea.com/arabic",
+        des: "사이트 유지보수 및 업데이트, 한국어/영어 - 아랍어 번역site http://arabic.visitmedicalkorea.com/arabic",
       },
       {
         title: "풀스택 개발자 ",
@@ -139,8 +138,7 @@ export const ko = {
         company: "Bio & Pure for Cosmetic",
         country: "카타르",
         duration: "2016-05 - 2018-08",
-        des:
-          "중소 화장품회사의 웹사이트 디자인과 유지보수작업. 프론트엔드 bootstrap4, JavaScript, HTML5, CSS; 백엔드 PHP, MySQL",
+        des: "중소 화장품회사의 웹사이트 디자인과 유지보수작업. 프론트엔드 bootstrap4, JavaScript, HTML5, CSS; 백엔드 PHP, MySQL",
       },
       {
         title: "프론트엔드 개발자",
@@ -192,7 +190,7 @@ export const ko = {
         employmentType: "풀 타임",
         company: "하이메디",
         country: "대한민국",
-        duration: "2019-12 - Till-now",
+        duration: "2019/12-2021/11",
         des:
           "하이메디에서는 한국 병원과 외국인 환자를 연결시겨 주는 의료 플랫폼을 구축했습니다. 프론트 엔드를 시작단계부터 개발하는 업무를 담당했습니다.\n" +
           "\n" +
@@ -214,12 +212,78 @@ export const ko = {
           "CI/CD: \n" +
           "(Notions, Github, G-Suite)",
       },
+      {
+        title: "프론트엔드 개발자",
+        employmentType: "풀 타임",
+        company: "b2ggames",
+        country: "대한민국",
+        duration: "2021/12 Till-Now",
+        des:
+          "b2ggames는 경쟁하는 게임을 만드는 스타트업 회사입니다.\n" +
+          "\n" +
+          "주요 업무:\n" +
+          "• Asian Model Festival(AMF) 이벤트 웹사이트 www.amffantasy.com를 기획 및 개발\n" +
+          "• 기존 프로젝트 플레이어를 매일 관리, 문제 디버깅, 고객 응대\n" +
+          "• 최고의 속도와 확장성을 위한 애플리케이션 향상 작업 수행\n" +
+          "• 백엔드 개발자 및 웹 디자이너와의 협업을 통해 사용 편의성 향상\n" +
+          "• 백엔드에 제출하기 전 인풋 유효성 확인\n" +
+          "• 브라우저 간 호환성 보장" +
+          "• Notion을 활용하여 기존 프로젝트에 대한 문서화 작업\n" +
+          "• 신규 개발자를 위한 교육 프로그램 개발\n" +
+          "• 다국어 구현(영어, 한국어)\n" +
+          "\n" +
+          "프런트 엔드:\n" +
+          "(HTML, SASS, Nuxt js, vuex)\n" +
+          "\n" +
+          "API 연동\n" +
+          "(백엔드 API, Facebook API, Google Analytics API)\n" +
+          "\n" +
+          "CI/CD:\n" +
+          "(Notion, Bitbuckt, Jira, Teams)\n",
+      },
     ],
   },
   Skills: {},
   WorkArea: {
     myProject: "프로젝트",
     projects: [
+      {
+        name: "Korean Baseball League",
+        url: "https://kbl-pc.b2ggames.net",
+        img: "kbl.png",
+        type: "프론트엔드",
+        hash: "",
+        width: "360",
+        height: "369",
+      },
+      {
+        name: "Asian Model Festival 2021",
+        url: "https://www.amffantasy.com/main",
+        img: "amf.png",
+        type: "프론트엔드",
+        hash: "",
+        width: "360",
+        height: "369",
+      },
+      {
+        name: "Galaxy 3D",
+        url: "https://s3.eu-west-3.amazonaws.com/yapoey.com/assets/sites/Galaxy/index.html",
+        img: "galaxy.png",
+        type: "연습",
+        hash: "",
+        width: "360",
+        height: "419",
+      },
+      {
+        name: "Himedi",
+        url: "https://himedi.com",
+        img: "himedi.png",
+        type: "프론트엔드",
+        hash: "",
+        width: "360",
+        height: "369",
+      },
+
       {
         name: "Old YapoeY",
         url: "http://old.yapoey.com/index-kr.html",
@@ -274,15 +338,16 @@ export const ko = {
         width: "360",
         height: "339",
       },
-      // {
-      //     name: 'Himedi',
-      //     url: 'https://himedi.com',
-      //     img: 'himedi.png',
-      //     type: 'Frontend',
-      //     hash: '',
-      //     width: '360',
-      //     height: '369'
-      // },
+      {
+        name: "YapoeY Logo 3D",
+        url: "https://wbgl-3d-text-snowy.vercel.app/?fbclid=IwAR3yQaPkZsFhcqzlhhA8rDf3KfG2xmhpIjr2IM8YTmTpnZ3pL6QT9wXDNls",
+        img: "yapoey.jpeg",
+        type: "연습",
+        hash: "",
+        width: "360",
+        height: "419",
+        xMargin: true,
+      },
     ],
   },
   ContactArea: {

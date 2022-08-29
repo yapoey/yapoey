@@ -198,7 +198,7 @@ export const en = {
         employmentType: "Full-time",
         company: "Himedi",
         country: "Korea",
-        duration: "2019/12 Till-Now",
+        duration: "2019/12-2021/11",
         des:
           "In Himedi we were building medical platform where we connect Korean hospitals with foreigner patients. I responsible for developing front-end from scratch: \n" +
           "\n" +
@@ -223,12 +223,75 @@ export const en = {
           "CI/CD: \n" +
           "(Notions, Github, G-Suite)",
       },
+      {
+        title: "Front End Developer",
+        employmentType: "Full-time",
+        company: "b2ggames",
+        country: "Korea",
+        duration: "2021/12 Till-Now",
+        des:
+          "b2ggames is a startup company for creating competitions games. I was responsible for\n" +
+          "• Develop from scratch Asian Model Festival (AMF) event website www.amffantasy.com\n" +
+          "• Daily maintenance of existed project playerz, debugging issues and solving clients problems.\n" +
+          "• Enhance application for maximum speed and scalability\n" +
+          "• Collaborate with back-end developers and web designers to improve usability\n" +
+          "• Validate input before submitting to back end\n" +
+          "• Ensure cross-browser compatibility\n" +
+          "• Set documentation system for exited projects using notion\n" +
+          "• Set onboarding program for new developers\n" +
+          "• Implementing multiple languages(English, Korean)\n" +
+          "Front-end:\n" +
+          "(HTML, SASS, Nuxt js, vuex)\n" +
+          "\n" +
+          "Connecting API\n" +
+          "(Backend API, FaceBook API, Google Analytics API)\n" +
+          "\n" +
+          "CI/CD:\n" +
+          "(Notion, Bitbuckt, Jira, teams)\n",
+      },
     ],
     skills: [],
   },
   WorkArea: {
     myProject: "My Projects",
     projects: [
+      {
+        name: "Korean Baseball League",
+        url: "https://kbl-pc.b2ggames.net",
+        img: "kbl.png",
+        type: "Frontend",
+        hash: "",
+        width: "360",
+        height: "369",
+      },
+      {
+        name: "Asian Model Festival 2021",
+        url: "https://www.amffantasy.com/main",
+        img: "amf.png",
+        type: "Frontend",
+        hash: "",
+        width: "360",
+        height: "369",
+      },
+      {
+        name: "Galaxy 3D",
+        url: "https://s3.eu-west-3.amazonaws.com/yapoey.com/assets/sites/Galaxy/index.html",
+        img: "galaxy.png",
+        type: "Practicing",
+        hash: "",
+        width: "360",
+        height: "419",
+      },
+      {
+        name: "Himedi",
+        url: "https://himedi.com",
+        img: "himedi.png",
+        type: "Frontend",
+        hash: "",
+        width: "360",
+        height: "369",
+      },
+
       {
         name: "Old YapoeY",
         url: "http://old.yapoey.com ",
@@ -238,6 +301,7 @@ export const en = {
         width: "360",
         height: "339",
       },
+
       {
         name: "GeeksFamily POS",
         url: "http://pos.woozza.dunkul.site/",
@@ -246,6 +310,7 @@ export const en = {
         hash: "",
         width: "360",
         height: "369",
+        xMargin: true,
       },
       {
         name: "GeeksFamily Woozza",
@@ -255,6 +320,7 @@ export const en = {
         hash: "",
         width: "360",
         height: "419",
+        xMargin: true,
       },
       {
         name: "Hanyang University Social Innovation Center",
@@ -264,6 +330,7 @@ export const en = {
         hash: "",
         width: "360",
         height: "259",
+        xMargin: true,
       },
       {
         name: "HolyHome",
@@ -273,6 +340,7 @@ export const en = {
         hash: "",
         width: "360",
         height: "309",
+        xMargin: true,
       },
       {
         name: "Seoul Youth University",
@@ -282,16 +350,18 @@ export const en = {
         hash: "",
         width: "360",
         height: "339",
+        xMargin: true,
       },
-      // {
-      //     name: 'Himedi',
-      //     url: 'https://himedi.com',
-      //     img: 'himedi.png',
-      //     type: 'Frontend',
-      //     hash: '',
-      //     width: '360',
-      //     height: '369'
-      // },
+      {
+        name: "YapoeY Logo 3D",
+        url: "https://wbgl-3d-text-snowy.vercel.app/?fbclid=IwAR3yQaPkZsFhcqzlhhA8rDf3KfG2xmhpIjr2IM8YTmTpnZ3pL6QT9wXDNls",
+        img: "yapoey.jpeg",
+        type: "Practicing",
+        hash: "",
+        width: "360",
+        height: "419",
+        xMargin: true,
+      },
     ],
   },
   ContactArea: {

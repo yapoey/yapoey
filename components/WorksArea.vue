@@ -44,11 +44,15 @@
           <!-- start single work item -->
           <div
             class="single-work col-lg-4 col-md-6 col-sm-12 all"
-            v-for="project in $t('WorkArea.projects')"
+            v-for="(project, index) in $t('WorkArea.projects')"
+            :key="'project' + index"
             :class="project.type"
             @click="$ga.event('WorksArea', 'Projects', project.name)"
           >
-            <div class="position-relative">
+            <div
+              class="position-relative"
+              :style="project.xMargin ? 'margin-top: 20px' : ''"
+            >
               <div class="thumb">
                 <img
                   class="image img-fluid"

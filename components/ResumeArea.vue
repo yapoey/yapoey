@@ -47,6 +47,7 @@
             <div
               class="resume-wrap transition d-flex"
               v-for="item in $t('ResumeArea.educations')"
+              :key="'item' + item.id"
               @click="$ga.event('AboutArea', 'Education Details', item.name)"
             >
               <div
@@ -72,6 +73,7 @@
             <div
               class="resume-wrap transition d-flex flex-column"
               v-for="job in $t('ResumeArea.experiences')"
+              :key="'job' + job.id"
               @click="$ga.event('AboutArea', 'Experience Details', job.company)"
             >
               <Experience :job="job" />
